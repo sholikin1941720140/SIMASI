@@ -19,7 +19,7 @@
 
 <body class="hold-transition login-page">
 
-    @include('auth.login')
+    @yield('content')
 
     <!-- jQuery -->
     <script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>
