@@ -13,12 +13,14 @@ return new class extends Migration
     {
         Schema::create('orangtuas', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('id_user');
             $table->unsignedBigInteger('id_mahasiswa');
             $table->string('nama');
             $table->string('alamat');
             $table->string('no_hp', 13);
             $table->timestamps();
 
+            $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('id_mahasiswa')->references('id')->on('mahasiswas')->onDelete('cascade');
         });
     }

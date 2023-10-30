@@ -13,12 +13,15 @@ return new class extends Migration
     {
         Schema::create('mahasiswas', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('id_user');
             $table->string('nim');
             $table->string('nama');
             $table->string('kelas');
             $table->string('jurusan');
             $table->string('foto')->nullable();
             $table->timestamps();
+
+            $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
