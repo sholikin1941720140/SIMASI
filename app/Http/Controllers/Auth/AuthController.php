@@ -28,7 +28,7 @@ class AuthController extends Controller
         ])) {
             $request->session()->regenerate();
 
-            return redirect()->route('dashboard');
+            return redirect()->route('dashboard.index');
         }
 
         return redirect()->route('login')->withErrors('Maaf anda tidak bisa login');

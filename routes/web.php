@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\AbsensiMahasiswaController;
 
 /*
@@ -21,3 +22,4 @@ Route::post('authenticate', [AuthController::class, 'authenticate'])->name('auth
 Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('dashboard', [AuthController::class, 'dashboard'])->name('dashboard.index');
 Route::get('absensi', [AbsensiMahasiswaController::class, 'index'])->name('absensi.index');
+Route::get('profile', [MahasiswaController::class, 'index'])->name('mahasiswa.index');
