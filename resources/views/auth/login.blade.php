@@ -12,27 +12,29 @@
                 <form action="{{ route('authenticate') }}" method="POST">
                     @csrf
                     <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
+                        </div>
                         <input type="email" class="form-control @error('email') is-invalid @enderror" placeholder="email"
                             id="email" name="email" value="{{ old('email') }}" required />
                         @if ($errors->has('email'))
                             <span class="text-danger">{{ $errors->first('email') }}</span>
                         @endif
-                        <div class="input-group-append">
-                            <div class="input-group-text">
-                                <span class="fas fa-envelope"></span>
-                            </div>
-                        </div>
                     </div>
                     <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1"><i class="fas fa-lock"></i></span>
+                        </div>
                         <input type="password" class="form-control @error('password') is-invalid @enderror"
                             placeholder="password" id="password" name="password" value="{{ old('password') }}" required />
                         @if ($errors->has('password'))
                             <span class="text-danger">{{ $errors->first('password') }}</span>
                         @endif
                         <div class="input-group-append">
-                            <div class="input-group-text">
-                                <span class="fas fa-lock"></span>
-                            </div>
+                            <span class="input-group-text" onclick="password_show_hide();">
+                                <i class="fas fa-eye" id="show_eye"></i>
+                                <i class="fas fa-eye-slash d-none" id="hide_eye"></i>
+                            </span>
                         </div>
                     </div>
                     <div class="row justify-content-center">
