@@ -38,7 +38,7 @@
                   <li class="nav-item menu-open mt-1">
                       <a href="{{ route('absensi.index') }}"
                           class="nav-link {{ request()->routeIs('absensi.index') ? 'active' : '' }}">
-                          <i class="fa fa-fw fa-user"></i>
+                          <i class="nav-icon fa fa-fw fa-user"></i>
                           <p>
                               Absensi
                           </p>
