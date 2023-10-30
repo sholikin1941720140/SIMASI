@@ -17,16 +17,21 @@ class AuthController extends Controller
 
     public function authenticate(Request $request)
     {
-        $request->validate([
+        $this->validate($request, [
             'email' => 'required|email',
             'password' => 'required|string|min:8|max:20'
         ]);
 
-        $credentials = $request->only('email', 'password');
-        if (Auth::attempt($credentials)) {
-            return redirect()->route('dashboard')->withSuccess('You are logged in');
+        if(Auth::attempt([
+            'email' => $request->get('email'), 
+            'password' => $request->get('password')
+        ])) {
+            $request->session()->regenerate();
+
+            return redirect()->route('dashboard');
         }
-        return redirect()->route('login')->withErrors('Invalid credentials');
+
+        return redirect()->route('login')->withErrors('Maaf anda tidak bisa login');
     }
 
     public function dashboard()
