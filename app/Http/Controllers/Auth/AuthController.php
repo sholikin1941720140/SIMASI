@@ -40,7 +40,7 @@ class AuthController extends Controller
         //     return view('dashboard');
         // }
         // return redirect()->route('login')->withSuccess('You are not allowed to access');
-        return view('layouts.app');
+        return view('dashboard');
     }
 
     public function logout(Request $request)

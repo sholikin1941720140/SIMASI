@@ -12,7 +12,7 @@ class AbsensiMahasiswaController extends Controller
      */
     public function index()
     {
-        //
+        return view('absensi');
     }
 
     /**
