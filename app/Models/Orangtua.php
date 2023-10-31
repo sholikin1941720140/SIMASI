@@ -9,6 +9,8 @@ class Orangtua extends Model
 {
     use HasFactory;
 
+    protected $table = 'orangtuas';
+
     protected $fillable = [
         'id_user',
         'id_mahasiswa',

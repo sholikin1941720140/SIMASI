@@ -9,6 +9,8 @@ class MataKuliah extends Model
 {
     use HasFactory;
 
+    protected $table = 'mata_kuliahs';
+
     protected $fillable = [
         'nama_matkul',
         'kode_matkul',
@@ -17,8 +19,8 @@ class MataKuliah extends Model
         'semester'
     ];
 
-    public function jadwal()
+    public function jadwal_mengajar()
     {
-        return $this->hasMany(Jadwal::class);
+        return $this->belongsToMany(JadwalMengajar::class);
     }
 }

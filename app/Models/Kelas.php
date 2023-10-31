@@ -9,6 +9,8 @@ class Kelas extends Model
 {
     use HasFactory;
 
+    protected $table = 'kelas';
+
     protected $fillable = [
         'nama_kelas'
     ];
@@ -16,10 +18,5 @@ class Kelas extends Model
     public function jadwal()
     {
         return $this->hasMany(Jadwal::class);
-    }
-
-    public function mahasiswa()
-    {
-        return $this->hasMany(Mahasiswa::class);
     }
 }

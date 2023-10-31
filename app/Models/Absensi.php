@@ -9,9 +9,11 @@ class Absensi extends Model
 {
     use HasFactory;
 
+    protected $table = 'absensis';
+
     protected $fillable = [
         'id_mahasiswa',
-        'id_jadwal',
+        'id_jadwalmengajar',
         'hari',
         'status'
     ];
@@ -21,8 +23,8 @@ class Absensi extends Model
         return $this->belongsToMany(Mahasiswa::class, 'id_mahasiswa');
     }
 
-    public function jadwal()
+    public function jadwal_mengajar()
     {
-        return $this->belongsTo(Jadwal::class, 'id_jadwal');
+        return $this->belongsTo(JadwalMengajar::class, 'id_jadwalmengajar');
     }
 }

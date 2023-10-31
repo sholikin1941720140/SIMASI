@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('kode_matkul');
             $table->string('sks');
             $table->string('jam');
-            $table->string('semester');
+            $table->string('semester', 20);
             $table->timestamps();
         });
     }

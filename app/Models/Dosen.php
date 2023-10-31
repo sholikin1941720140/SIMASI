@@ -9,14 +9,16 @@ class Dosen extends Model
 {
     use HasFactory;
 
+    protected $table = 'dosens';
+
     protected $fillable = [
         'nip',
         'nama',
         'email'
     ];
 
-    public function jadwal()
+    public function jadwal_mengajar()
     {
-        return $this->hasMany(Jadwal::class);
+        return $this->belongsToMany(JadwalMengajar::class);
     }
 }

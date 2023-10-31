@@ -14,13 +14,13 @@ return new class extends Migration
         Schema::create('absensis', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('id_mahasiswa');
-            $table->unsignedBigInteger('id_jadwal');
+            $table->unsignedBigInteger('id_jadwalmengajar');
             $table->string('hari');
-            $table->boolean('status')->default(false);
+            $table->string('status');
             $table->timestamps();
 
-            $table->foreign('id_mahasiswa')->references('id')->on('mahasiswas');
-            $table->foreign('id_jadwal')->references('id')->on('jadwals');
+            $table->foreign('id_mahasiswa')->references('id')->on('mahasiswas')->onDelete('cascade');
+            $table->foreign('id_jadwalmengajar')->references('id')->on('jadwals')->onDelete('cascade');
         });
     }
 

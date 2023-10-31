@@ -13,16 +13,12 @@ return new class extends Migration
     {
         Schema::create('jadwals', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_matkul');
-            $table->unsignedBigInteger('id_dosen');
             $table->unsignedBigInteger('id_kelas');
             $table->string('hari');
             $table->string('jam_mulai');
             $table->string('jam_selesai');
             $table->timestamps();
 
-            $table->foreign('id_matkul')->references('id')->on('mata_kuliahs')->onDelete('cascade');
-            $table->foreign('id_dosen')->references('id')->on('dosens')->onDelete('cascade');
             $table->foreign('id_kelas')->references('id')->on('kelas')->onDelete('cascade');
         });
     }
