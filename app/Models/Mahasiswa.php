@@ -10,30 +10,29 @@ class Mahasiswa extends Model
     use HasFactory;
 
     protected $fillable = [
+        'id_user',
+        'id_kelas',
         'nim',
-        'nama',
-        'kelas',
-        'jurusan',
-        'foto'
+        'jurusan'
     ];
 
-    public function users()
+    public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'id_user');
     }
 
-    public function mata_kuliah()
+    public function kelas()
     {
-        return $this->belongsToMany(MataKuliah::class);
+        return $this->belongsTo(Kelas::class, 'id_kelas');
     }
-    
+
     public function orangtua()
     {
-        return $this->hasOne(Orangtua::class);
+        return $this->belongsTo(Orangtua::class);
     }
-    
+
     public function absensi()
     {
-        return $this->belongsToMany(AbsensiMahasiswa::class);
+        return $this->hasMany(Absensi::class);
     }
 }

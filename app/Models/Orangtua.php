@@ -10,19 +10,19 @@ class Orangtua extends Model
     use HasFactory;
 
     protected $fillable = [
+        'id_user',
         'id_mahasiswa',
         'nama',
-        'alamat',
-        'no_hp'
+        'alamat'
     ];
 
-    public function users()
+    public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'id_user');
     }
 
     public function mahasiswa()
     {
-        return $this->belongsTo(Mahasiswa::class);
+        return $this->hasMany(Mahasiswa::class, 'id_mahasiswa');
     }
 }

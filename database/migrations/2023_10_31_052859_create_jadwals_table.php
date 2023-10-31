@@ -11,16 +11,19 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('absensi_mahasiswas', function (Blueprint $table) {
+        Schema::create('jadwals', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_mahasiswa');
             $table->unsignedBigInteger('id_matkul');
-            $table->string('tanggal');
-            $table->boolean('hadir')->default(false);
+            $table->unsignedBigInteger('id_dosen');
+            $table->unsignedBigInteger('id_kelas');
+            $table->string('hari');
+            $table->string('jam_mulai');
+            $table->string('jam_selesai');
             $table->timestamps();
 
-            $table->foreign('id_mahasiswa')->references('id')->on('mahasiswas')->onDelete('cascade');
             $table->foreign('id_matkul')->references('id')->on('mata_kuliahs')->onDelete('cascade');
+            $table->foreign('id_dosen')->references('id')->on('dosens')->onDelete('cascade');
+            $table->foreign('id_kelas')->references('id')->on('kelas')->onDelete('cascade');
         });
     }
 
@@ -29,6 +32,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('absensi_mahasiswas');
+        Schema::dropIfExists('jadwals');
     }
 };
