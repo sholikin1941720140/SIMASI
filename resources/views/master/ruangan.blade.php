@@ -31,34 +31,37 @@
                                 </div>
                                 <!-- /.card-header -->
                                 <div class="card-body">
-                                    <td>
-                                        <button type="button" class="btn btn-success mb-2">Tambah Data</button>
-                                    </td>
                                     <table id="example1" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
-                                                <th>Nama Dosen</th>
+                                                <th>No.</th>
                                                 <th>Mata Kuliah</th>
-                                                <th>Jam Mulai</th>
-                                                <th>Jam Selesai</th>
+                                                <th>Kode Mata Kuliah</th>
+                                                <th>SKS</th>
+                                                <th>Jam</th>
+                                                <th>Semester</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($dosen as $dos)
+                                            @foreach ($matkul as $mat)
                                                 <tr>
-                                                    <td>{{ $dos->nama }}</td>
-                                                    <td>asd</td>
-                                                    <td> 4</td>
-                                                    <td>X</td>
+                                                    <td>{{ $loop->iteration }}</td>
+                                                    <td>{{ $mat->nama_matkul }}</td>
+                                                    <td>{{ $mat->kode_matkul }}</td>
+                                                    <td>{{ $mat->sks }}</td>
+                                                    <td>{{ $mat->jam }}</td>
+                                                    <td>{{ $mat->semester }}</td>
                                                 <tr>
                                             @endforeach
                                         </tbody>
                                         <tfoot>
                                             <tr>
-                                                <th>Nama Dosen</th>
+                                                <th>No.</th>
                                                 <th>Mata Kuliah</th>
-                                                <th>Jam Mulai</th>
-                                                <th>Jam Selesai</th>
+                                                <th>Kode Mata Kuliah</th>
+                                                <th>SKS</th>
+                                                <th>Jam</th>
+                                                <th>Semester</th>
                                             </tr>
                                         </tfoot>
                                     </table>

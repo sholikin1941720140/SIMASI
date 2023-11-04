@@ -84,7 +84,7 @@
                                 <a href="{{ route('admin-jadwal.index') }}"
                                     class="nav-link {{ request()->routeIs('admin-jadwal.index') ? 'active' : '' }}">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>Jadwal Kelas Mahasiswa</p>
+                                    <p>Jadwal Kelas</p>
                                 </a>
                             </li>
                             <li class="nav-item">

@@ -6,64 +6,61 @@ use App\Models\JadwalMengajar;
 use App\Models\Dosen;
 use App\Models\MataKuliah;
 use Illuminate\Http\Request;
+use DB;
 
 class JadwalMengajarController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
+    {
+        $mengajars = JadwalMengajar::all();
+        return view('jadwal-dosen.jadwal-mengajar', compact('mengajars'));
+    }
+
+    public function create()
     {
         $dosen = Dosen::all();
         $matkul = MataKuliah::all();
-        return view('jadwal-mengajar', compact('dosen', 'matkul'));
+        return view('jadwal-dosen.create-jadwal-mengajar', compact('dosen', 'matkul'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        DB::table('jadwal_mengajars')->insert([
+            'nama_dosen'=>$request->nama_dosen,
+            'nip'=>$request->nip,
+            'matakuliah'=>$request->matakuliah,
+            'created_at'=>now(),
+            'updated_at'=>now()
+        ]);
+
+        return redirect()->route('admin-jadwal-mengajar.index')->with('success', 'Data berhasil ditambahkan');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(JadwalMengajar $jadwalMengajar)
+    public function edit(JadwalMengajar $jadwalMengajar ,String $id)
     {
-        //
+        $jadwalMengajar = JadwalMengajar::find($id);
+        return view('jadwal-dosen.edit-jadwal-mengajar', compact('jadwalMengajar'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(JadwalMengajar $jadwalMengajar)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, JadwalMengajar $jadwalMengajar)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(JadwalMengajar $jadwalMengajar)
+    public function destroy(String $id)
     {
-        //
+        $jadwalMengajar->find($id);
+        $jadwalMengajar->delete();
+
+        return redirect()->route('admin-jadwal-mengajar.index')->with('success', 'Data berhasil dihapus');  
+    }
+
+    public function getNip(Request $request)
+    {
+        $nip = $request->nip;
+        $dosen = Dosen::where('nip', $nip)->first();
+        return response()->json([
+            'data' =>$dosen
+        ]);
     }
 }

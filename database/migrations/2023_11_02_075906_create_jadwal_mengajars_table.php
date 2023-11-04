@@ -13,12 +13,10 @@ return new class extends Migration
     {
         Schema::create('jadwal_mengajars', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_dosen');
-            $table->unsignedBigInteger('id_matakuliah');
+            $table->string('nama_dosen');
+            $table->string('nip');
+            $table->string('matakuliah');            
             $table->timestamps();
-
-            $table->foreign('id_dosen')->references('id')->on('dosens')->onDelete('cascade');
-            $table->foreign('id_matakuliah')->references('id')->on('mata_kuliahs')->onDelete('cascade');
         });
     }
 

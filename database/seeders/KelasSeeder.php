@@ -15,16 +15,16 @@ class KelasSeeder extends Seeder
     {
         DB::table('kelas')->insert([
             [
-                'nama_kelas' => '6A',
+                'nama_kelas' => '1D',
             ],
             [
-                'nama_kelas' => '6B',
+                'nama_kelas' => '2F',
             ],
             [
-                'nama_kelas' => '6C',
+                'nama_kelas' => '3F',
             ],
             [
-                'nama_kelas' => '6D',
+                'nama_kelas' => '4C',
             ]
         ]);
     }

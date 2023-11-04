@@ -27,4 +27,10 @@ class MasterController extends Controller
         $kelas = Kelas::all();
         return view('master.kelas', compact('kelas'));
     }
+
+    public function ruangan()
+    {
+        $ruangan = Ruangan::all();
+        return view('master.ruangan', compact('ruangan'));
+    }
 }
