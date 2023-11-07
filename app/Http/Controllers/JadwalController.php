@@ -2,8 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kelas;
 use App\Models\Jadwal;
+use App\Models\Ruangan;
 use Illuminate\Http\Request;
+use App\Models\JadwalMengajar;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 
 class JadwalController extends Controller
 {
@@ -12,7 +17,13 @@ class JadwalController extends Controller
      */
     public function index()
     {
-        //
+        $jadwal = Jadwal::all();
+        // return response()->json([
+        //     'data' => $kelas,
+        //     'data2' => $ruangan,
+        //     'data3' => $mengajar
+        // ]);
+        return view('jadwal.jadwal', compact('jadwal'));
     }
 
     /**
@@ -20,7 +31,11 @@ class JadwalController extends Controller
      */
     public function create()
     {
-        //
+        $kelas = Kelas::all();
+        $ruangan = Ruangan::all();
+        $mengajar = JadwalMengajar::get();
+
+        return view('jadwal.create-jadwal', compact('kelas', 'ruangan', 'mengajar'));
     }
 
     /**
@@ -28,7 +43,18 @@ class JadwalController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        DB::table('jadwals')->insert([
+            'kelas' => $request->kelas,
+            'matakuliah' => $request->matakuliah,
+            'dosen' => $request->dosen,
+            'hari' => $request->hari,
+            'jam_mulai' => $request->jam_mulai,
+            'jam_selesai' => $request->jam_selesai,
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+
+        return redirect()->route('admin-jadwal.index')->with('success', 'Data berhasil ditambahkan');
     }
 
     /**
@@ -44,7 +70,7 @@ class JadwalController extends Controller
      */
     public function edit(Jadwal $jadwal)
     {
-        //
+        
     }
 
     /**

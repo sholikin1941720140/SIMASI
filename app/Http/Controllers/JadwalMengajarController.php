@@ -26,11 +26,11 @@ class JadwalMengajarController extends Controller
     public function store(Request $request)
     {
         DB::table('jadwal_mengajars')->insert([
-            'nama_dosen'=>$request->nama_dosen,
-            'nip'=>$request->nip,
-            'matakuliah'=>$request->matakuliah,
-            'created_at'=>now(),
-            'updated_at'=>now()
+            'nama_dosen' => $request->nama_dosen,
+            'nip' => $request->nip,
+            'matakuliah' => $request->matakuliah,
+            'created_at' => now(),
+            'updated_at' => now()
         ]);
 
         return redirect()->route('admin-jadwal-mengajar.index')->with('success', 'Data berhasil ditambahkan');
@@ -38,7 +38,10 @@ class JadwalMengajarController extends Controller
 
     public function edit(JadwalMengajar $jadwalMengajar ,String $id)
     {
-        $jadwalMengajar = JadwalMengajar::find($id);
+        $jadwalMengajar = JadwalMengajar::where('id', $id)->first();
+        return response()->json([
+            'data' => $jadwalMengajar
+        ]);
         return view('jadwal-dosen.edit-jadwal-mengajar', compact('jadwalMengajar'));
     }
 
@@ -49,9 +52,9 @@ class JadwalMengajarController extends Controller
 
     public function destroy(String $id)
     {
-        $jadwalMengajar->find($id);
+        $jadwalMengajar = JadwalMengajar::find($id);
         $jadwalMengajar->delete();
-
+        
         return redirect()->route('admin-jadwal-mengajar.index')->with('success', 'Data berhasil dihapus');  
     }
 

@@ -3,9 +3,6 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Dosen;
-use App\Models\MataKuliah;
-use App\Models\Kelas;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -15,13 +12,7 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $kelas = Kelas::all();
-        // return response()->json([
-        //     'data' => $dosen,
-        //     'data2' => $matkul,
-        //     'data3' => $kelas
-        // ]);
-        return view('jadwal', compact('kelas'));
+        //
     }
 
     /**

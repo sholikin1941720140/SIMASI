@@ -13,7 +13,7 @@
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">Jadwal Mengajar</li>
+                                <li class="breadcrumb-item active">Jadwal Kelas</li>
                             </ol>
                         </div>
                     </div>
@@ -27,13 +27,13 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h3 class="card-title">Jadwal Mengajar</h3>
+                                    <h3 class="card-title">Jadwal Kelas</h3>
                                 </div>
                                 <!-- /.card-header -->
                                 <div class="card-body">
                                     <td>
                                         <button type="button" class="btn btn-success mb-2"
-                                            onclick="location.href='{{ route('admin-tambah-jadwal-mengajar.create') }}'">
+                                            onclick="location.href='{{ route('admin-tambah-jadwal.create') }}'">
                                             Tambah Data
                                         </button>
                                     </td>
@@ -41,28 +41,34 @@
                                         <thead>
                                             <tr>
                                                 <th>No.</th>
-                                                <th>Nama Dosen</th>
-                                                <th>NIP</th>
+                                                <th>Kelas</th>
                                                 <th>Mata Kuliah</th>
-                                                <th>action</th>
+                                                <th>Dosen</th>
+                                                <th>Hari</th>
+                                                <th>Jam Mulai</th>
+                                                <th>Jam Selesai</th>
+                                                <td>Action</td>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($mengajars as $mengajar)
+                                            @foreach ($jadwal as $jad)
                                                 <tr>
                                                     <td>{{ $loop->iteration }}</td>
-                                                    <td>{{ $mengajar->nama_dosen }}</td>
-                                                    <td>{{ $mengajar->nip }}</td>
-                                                    <td>{{ $mengajar->matakuliah }}</td>
+                                                    <td>{{ $jad->kelas }}</td>
+                                                    <td>{{ $jad->matakuliah }}</td>
+                                                    <td>{{ $jad->dosen }}</td>
+                                                    <td>{{ $jad->hari }}</td>
+                                                    <td>{{ $jad->jam_mulai }}</td>
+                                                    <td>{{ $jad->jam_selesai }}</td>
                                                     <td>
                                                         <div class="row">
                                                             <div class="px-2">
                                                                 <button type="submit" class="btn btn-primary"
-                                                                    onclick="location.href='{{ route('admin-edit-jadwal-mengajar.edit', $mengajar->id) }}">Edit</button>
+                                                                    onclick="location.href='{{ route('admin-edit-jadwal-mengajar.edit', $jad->id) }}">Edit</button>
                                                             </div>
                                                             <div>
                                                                 <form
-                                                                    action="{{ route('admin-delete-jadwal-mengajar.destroy', $mengajar->id) }}"
+                                                                    action="{{ route('admin-delete-jadwal-mengajar.destroy', $jad->id) }}"
                                                                     method="POST">
                                                                     @csrf
                                                                     @method('DELETE')
@@ -72,7 +78,7 @@
                                                             </div>
                                                         </div>
                                                     </td>
-                                                <tr>
+                                                </tr>
                                             @endforeach
                                         </tbody>
                                     </table>
