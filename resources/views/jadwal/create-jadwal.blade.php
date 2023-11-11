@@ -23,7 +23,7 @@
             <!-- Main content -->
             <section class="content">
                 <div class="container-fluid">
-                    <form action="{{ route('admin-tambah-jadwal.store') }}" method="POST">
+                    <form action="{{ route('jadwal.store') }}" method="POST">
                         @csrf
                         <div class="row">
                             <div class="col-12">
@@ -33,7 +33,7 @@
                                     </div>
                                     <!-- /.card-header -->
                                     <div class="card-body">
-                                        <table id="example1" class="table table-bordered table-striped">
+                                        <table class="table table-bordered table-striped">
                                             <thead>
                                                 <tr>
                                                     <th>No.</th>
@@ -43,6 +43,7 @@
                                                     <th>Hari</th>
                                                     <th>Jam Mulai</th>
                                                     <th>Jam Selesai</th>
+                                                    <th>Ruangan</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -105,6 +106,20 @@
                                                     </td>
                                                     <td>
                                                         <input type="time" id="appt" name="jam_selesai">
+                                                    </td>
+                                                    <td>
+                                                        <div class="form-group">
+                                                            <select class="form-control select2" style="width: 100%;"
+                                                                name="ruangan">
+                                                                <option selected disabled>Pilih Ruangan</option>
+                                                                @foreach ($ruangan as $ruang)
+                                                                    <option value="{{ $ruang->nama_ruangan }}"
+                                                                        id="{{ $ruang->id }}">
+                                                                        {{ $ruang->nama_ruangan }}
+                                                                    </option>
+                                                                @endforeach
+                                                            </select>
+                                                        </div>
                                                     </td>
                                                 <tr>
                                             </tbody>

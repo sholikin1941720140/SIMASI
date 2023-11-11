@@ -74,15 +74,15 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="{{ route('admin-jadwal-mengajar.index') }}"
-                                    class="nav-link {{ request()->routeIs('admin-jadwal-mengajar.index') ? 'active' : '' }}">
+                                <a href="{{ route('jadwal-mengajar.index') }}"
+                                    class="nav-link {{ request()->routeIs('jadwal-mengajar.index') ? 'active' : '' }}">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Jadwal Dosen Mengajar</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('admin-jadwal.index') }}"
-                                    class="nav-link {{ request()->routeIs('admin-jadwal.index') ? 'active' : '' }}">
+                                <a href="{{ route('jadwal.index') }}"
+                                    class="nav-link {{ request()->routeIs('jadwal.index') ? 'active' : '' }}">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Jadwal Kelas</p>
                                 </a>

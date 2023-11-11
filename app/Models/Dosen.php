@@ -16,9 +16,4 @@ class Dosen extends Model
         'nama',
         'email'
     ];
-
-    public function jadwal_mengajar()
-    {
-        return $this->belongsToMany(JadwalMengajar::class);
-    }
 }

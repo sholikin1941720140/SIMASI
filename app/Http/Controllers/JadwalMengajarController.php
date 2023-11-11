@@ -33,7 +33,7 @@ class JadwalMengajarController extends Controller
             'updated_at' => now()
         ]);
 
-        return redirect()->route('admin-jadwal-mengajar.index')->with('success', 'Data berhasil ditambahkan');
+        return redirect()->route('jadwal-mengajar.index')->with('success', 'Data berhasil ditambahkan');
     }
 
     public function edit(JadwalMengajar $jadwalMengajar ,String $id)
@@ -55,7 +55,7 @@ class JadwalMengajarController extends Controller
         $jadwalMengajar = JadwalMengajar::find($id);
         $jadwalMengajar->delete();
         
-        return redirect()->route('admin-jadwal-mengajar.index')->with('success', 'Data berhasil dihapus');  
+        return redirect()->route('jadwal-mengajar.index')->with('success', 'Data berhasil dihapus');  
     }
 
     public function getNip(Request $request)

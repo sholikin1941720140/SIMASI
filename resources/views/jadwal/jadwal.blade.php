@@ -33,11 +33,11 @@
                                 <div class="card-body">
                                     <td>
                                         <button type="button" class="btn btn-success mb-2"
-                                            onclick="location.href='{{ route('admin-tambah-jadwal.create') }}'">
+                                            onclick="location.href='{{ route('jadwal.create') }}'">
                                             Tambah Data
                                         </button>
                                     </td>
-                                    <table id="example1" class="table table-bordered table-striped">
+                                    <table class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
                                                 <th>No.</th>
@@ -47,6 +47,7 @@
                                                 <th>Hari</th>
                                                 <th>Jam Mulai</th>
                                                 <th>Jam Selesai</th>
+                                                <th>Ruangan</th>
                                                 <td>Action</td>
                                             </tr>
                                         </thead>
@@ -60,15 +61,16 @@
                                                     <td>{{ $jad->hari }}</td>
                                                     <td>{{ $jad->jam_mulai }}</td>
                                                     <td>{{ $jad->jam_selesai }}</td>
+                                                    <td>{{ $jad->ruangan }}</td>
                                                     <td>
                                                         <div class="row">
                                                             <div class="px-2">
                                                                 <button type="submit" class="btn btn-primary"
-                                                                    onclick="location.href='{{ route('admin-edit-jadwal-mengajar.edit', $jad->id) }}">Edit</button>
+                                                                    onclick="location.href='{{ route('jadwal-mengajar.edit', $jad->id) }}">Edit</button>
                                                             </div>
                                                             <div>
                                                                 <form
-                                                                    action="{{ route('admin-delete-jadwal-mengajar.destroy', $jad->id) }}"
+                                                                    action="{{ route('jadwal-mengajar.destroy', $jad->id) }}"
                                                                     method="POST">
                                                                     @csrf
                                                                     @method('DELETE')

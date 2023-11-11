@@ -18,11 +18,6 @@ class JadwalController extends Controller
     public function index()
     {
         $jadwal = Jadwal::all();
-        // return response()->json([
-        //     'data' => $kelas,
-        //     'data2' => $ruangan,
-        //     'data3' => $mengajar
-        // ]);
         return view('jadwal.jadwal', compact('jadwal'));
     }
 
@@ -50,11 +45,12 @@ class JadwalController extends Controller
             'hari' => $request->hari,
             'jam_mulai' => $request->jam_mulai,
             'jam_selesai' => $request->jam_selesai,
+            'ruangan' => $request->ruangan,
             'created_at' => now(),
             'updated_at' => now()
         ]);
 
-        return redirect()->route('admin-jadwal.index')->with('success', 'Data berhasil ditambahkan');
+        return redirect()->route('jadwal.index')->with('success', 'Data berhasil ditambahkan');
     }
 
     /**

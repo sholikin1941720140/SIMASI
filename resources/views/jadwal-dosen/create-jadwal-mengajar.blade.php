@@ -23,7 +23,7 @@
             <!-- Main content -->
             <section class="content">
                 <div class="container-fluid">
-                    <form action="{{ route('admin-tambah-jadwal-mengajar.create') }}" method="POST">
+                    <form action="{{ route('jadwal-mengajar.store') }}" method="POST">
                         @csrf
                         <div class="row">
                             <div class="col-12">
@@ -33,7 +33,7 @@
                                     </div>
                                     <!-- /.card-header -->
                                     <div class="card-body">
-                                        <table id="example1" class="table table-bordered table-striped">
+                                        <table class="table table-bordered table-striped">
                                             <thead>
                                                 <tr>
                                                     <th>No.</th>

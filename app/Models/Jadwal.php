@@ -19,9 +19,4 @@ class Jadwal extends Model
         'jam_mulai',
         'jam_selesai'
     ];
-
-    public function kelas()
-    {
-        return $this->belongsToMany(Kelas::class, 'id_kelas');
-    }
 }

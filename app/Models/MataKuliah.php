@@ -18,9 +18,4 @@ class MataKuliah extends Model
         'jam',
         'semester'
     ];
-
-    public function jadwal_mengajar()
-    {
-        return $this->belongsToMany(JadwalMengajar::class);
-    }
 }

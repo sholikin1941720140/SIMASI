@@ -23,7 +23,7 @@
             <!-- Main content -->
             <section class="content">
                 <div class="container-fluid">
-                    <form action="{{ route('admin-edit-jadwal-mengajar.update', $jadwalMengajar->id) }}" method="POST">
+                    <form action="{{ route('jadwal-mengajar.update', $jadwalMengajar->id) }}" method="POST">
                         @csrf
                         @method('PUT')
                         <div class="row">

@@ -16,19 +16,4 @@ class JadwalMengajar extends Model
         'nip',
         'matakuliah'
     ];
-
-    public function dosen()
-    {
-        return $this->belongsToMany(Dosen::class, 'id_dosen');
-    }
-
-    public function mata_kuliah()
-    {
-        return $this->belongsToMany(MataKuliah::class, 'id_matakuliah');
-    }
-
-    public function jadwal()
-    {
-        return $this->belongsToMany(Jadwal::class);
-    }
 }

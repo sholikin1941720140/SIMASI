@@ -33,11 +33,11 @@
                                 <div class="card-body">
                                     <td>
                                         <button type="button" class="btn btn-success mb-2"
-                                            onclick="location.href='{{ route('admin-tambah-jadwal-mengajar.create') }}'">
+                                            onclick="location.href='{{ route('jadwal-mengajar.create') }}'">
                                             Tambah Data
                                         </button>
                                     </td>
-                                    <table id="example1" class="table table-bordered table-striped">
+                                    <table class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
                                                 <th>No.</th>
@@ -58,11 +58,11 @@
                                                         <div class="row">
                                                             <div class="px-2">
                                                                 <button type="submit" class="btn btn-primary"
-                                                                    onclick="location.href='{{ route('admin-edit-jadwal-mengajar.edit', $mengajar->id) }}">Edit</button>
+                                                                    onclick="location.href='{{ route('jadwal-mengajar.edit', $mengajar->id) }}">Edit</button>
                                                             </div>
                                                             <div>
                                                                 <form
-                                                                    action="{{ route('admin-delete-jadwal-mengajar.destroy', $mengajar->id) }}"
+                                                                    action="{{ route('jadwal-mengajar.destroy', $mengajar->id) }}"
                                                                     method="POST">
                                                                     @csrf
                                                                     @method('DELETE')

@@ -27,18 +27,18 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/dashboard', [AuthController::class, 'dashboard'])->name('dashboard.index');
 Route::get('/absensi', [AbsensiController::class, 'index'])->name('absensi.index');
 Route::get('/profile', [MahasiswaController::class, 'index'])->name('mahasiswa.index');
-
+    
 //Admin Route
-Route::get('/jadwal', [JadwalController::class, 'index'])->name('admin-jadwal.index');
-Route::get('/tambah-jadwal', [JadwalController::class, 'create'])->name('admin-tambah-jadwal.create');
-Route::post('/tambah-jadwal', [JadwalController::class, 'store'])->name('admin-tambah-jadwal.store');
+Route::get('/jadwal-mengajar', [JadwalMengajarController::class, 'index'])->name('jadwal-mengajar.index');
+Route::get('/jadwal-mengajar/create', [JadwalMengajarController::class, 'create'])->name('jadwal-mengajar.create');
+Route::post('/jadwal-mengajar/store', [JadwalMengajarController::class, 'store'])->name('jadwal-mengajar.store');
+Route::get('/jadwal-mengajar/edit/{jadwal_mengajar}', [JadwalMengajarController::class], 'edit')->name('jadwal-mengajar.edit');
+Route::post('/jadwal-mengajar/update/{jadwal_mengajar}', [JadwalMengajarController::class], 'update')->name('jadwal-mengajar.update');
+Route::get('/jadwal-mengajar/delete/{jadwal_mengajar}', [JadwalMengajarController::class], 'destroy')->name('jadwal-mengajar.destroy');
 
-Route::get('/jadwal-mengajar', [JadwalMengajarController::class, 'index'])->name('admin-jadwal-mengajar.index');
-Route::get('/tambah-jadwal-mengajar', [JadwalMengajarController::class, 'create'])->name('admin-tambah-jadwal-mengajar.create');
-Route::post('/tambah-jadwal-mengajar', [JadwalMengajarController::class, 'store'])->name('admin-tambah-jadwal-mengajar.store');
-Route::get('/edit-jadwal-mengajar/edit/{id}', [JadwalMengajarController::class], 'edit')->name('admin-edit-jadwal-mengajar.edit');
-Route::post('/update-jadwal-mengajar/update/{id}', [JadwalMengajarController::class], 'update')->name('admin-update-jadwal-mengajar.update');
-Route::get('/delete-jadwal-mengajar/delete/{id}', [JadwalMengajarController::class], 'destroy')->name('admin-delete-jadwal-mengajar.destroy');
+Route::get('/jadwal', [JadwalController::class, 'index'])->name('jadwal.index');
+Route::get('/jadwal/create', [JadwalController::class, 'create'])->name('jadwal.create');
+Route::post('/jadwal/store', [JadwalController::class, 'store'])->name('jadwal.store');
 
 //Master Route
 Route::get('/dosen', [MasterController::class, 'dosen'])->name('dosen.index');
